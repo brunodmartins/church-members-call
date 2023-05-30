@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "church-members-call"
+version = "0.1.0"
+description = "An application to register members call mainly on sunday school"
+authors = ["Bruno Damasceno Martins <bdm2943@icloud.com>"]
+readme = "README.md"
+packages = [{include = "church_members_call"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
