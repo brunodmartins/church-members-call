@@ -28,4 +28,4 @@ class ClassLesson(models.Model):
     date = models.DateTimeField("class date")
     classObj = models.ForeignKey(Class, on_delete=models.PROTECT)
     teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT)
-    students = models.ForeignKey(Student, on_delete=models.PROTECT)
+    students = models.ManyToManyField(Student)
