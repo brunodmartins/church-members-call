@@ -1,8 +1,16 @@
 from django.db import models
 
 
+class Class(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 class Teacher(models.Model):
     name = models.CharField(max_length=200)
+    school_class = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
@@ -10,15 +18,7 @@ class Teacher(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-
-class Class(models.Model):
-    name = models.CharField(max_length=200)
-    teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT)
-    students = models.ForeignKey(Student, on_delete=models.PROTECT)
+    school_class = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
